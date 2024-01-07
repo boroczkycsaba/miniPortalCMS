@@ -1,0 +1,9 @@
+footer {
+    bottom: 0;
+    background-color: rgb(242, 247, 253);
+    color: darkgreen;
+    font-size: 1vw;
+    margin: 0;
+    padding: 1rem;
+    box-shadow: 0 5px 5px beige;
+}

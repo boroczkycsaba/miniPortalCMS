@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,html {
+  font-family: 'Playfair Display', serif;
+}
+
+h2 {
+  text-align: center;
+}
+.page {
+  width: 100vw;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  justify-content: center;
+  background-color: rgba(245, 251, 255, 0.8);
+}
+
+h2 {
+  padding-top: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#eeeeee, #865b5b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.active {
+  background-color: rgba(252, 150, 0, 0.8);
+}
+
+.selectedPortalLanguage {
+  border: 1px solid rgba(252, 150, 0, 0.8) !important;
+  border-radius: 2px !important;
+}
+
+.datatable-row-even {
+  background-color: rgb(203, 247, 247);
+}
+
+.datatable-row-odd {
+  background-color: rgb(145, 203, 223);
+}

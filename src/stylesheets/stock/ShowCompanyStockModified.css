@@ -1,0 +1,4 @@
+#showModifiedStockDIV {
+    background: hsla(191, 61%, 83%, 1);
+    background: linear-gradient(90deg, hsla(191, 61%, 83%, 1) 0%, rgb(130, 146, 233) 100%);
+}
