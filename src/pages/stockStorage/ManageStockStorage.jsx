@@ -58,6 +58,7 @@ export const ManageStockStorage = ({
           <ManageCompanyStorageStockGrid
             companyFireStroreData={companyFireStroreData}
             setCompanyFireStroreData={setCompanyFireStroreData}
+            portalLanguage={portalLanguage}
           ></ManageCompanyStorageStockGrid>
         }
       </div>

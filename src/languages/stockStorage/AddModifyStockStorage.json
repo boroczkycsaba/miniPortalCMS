@@ -1,0 +1,26 @@
+{
+    "HU": {
+        "storageItemName": "Raktár neve:",
+        "storageItemNameText": "Kérjük adja meg a raktár nevét.",
+        "storageItemVirtual": "Virtuális-e a raktár?:",
+        "yes": "Igen",
+        "no": "Nem",
+        "storageItemAddress": "Raktár címe:",
+        "storageItemAddressText":
+          "Kérjük adja meg a raktár címét.",
+        "storageItemDescription": "Leírás a raktrárról:",
+        "storageItemDescriptionText": "Kérlek adj meg egy leírást a raktrárról."
+    },
+    "UK": {
+        "storageItemName": "Storage item name:",
+        "storageItemNameText": "Please add the storage item name.",
+        "userNameLabelText": "User name:",
+        "storageItemVirtual": "Storage item is virtual?",
+        "yes": "Yes",
+        "no": "No",
+        "storageItemAddress": "Storage item address:",
+        "storageItemAddressText": "Please add the storage item address.",
+        "storageItemDescription": "Storage item description:",
+        "storageItemDescriptionText": "Please write a short description of storage item."
+    }
+}

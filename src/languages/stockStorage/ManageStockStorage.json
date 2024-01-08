@@ -1,0 +1,20 @@
+{
+  "HU": {
+    "storageName": "Raktár neve",
+    "virtual": "Virtuális-e?",
+    "address": "Cím",
+    "description": "Leírás",
+    "action": "Művelet",
+    "showStorageAction": "Adat megnézése",
+    "modifyAction": "Adat módosítása"
+  },
+  "UK": {
+    "storageName": "Storage item name",
+    "virtual": "Is virtual?",
+    "address": "Address",
+    "description": "Description",
+    "action": "Action",
+    "showStorageAction": "Show storage",
+    "modifyAction": "Modify"
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import langugeData from "../../languages/stockStorage/ManageStockStorage.json";
 import { BaseDataGrid } from "./BaseDataGrid";
 import { readStorageItems } from "../../utility/crudUtilityStockStorage";
 import { Loader } from "../Loader";
@@ -11,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Stack, SvgIcon } from "@mui/material";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
+import { getCurrentUserLanguage } from "../../utility/serviceLanguage";
 
 export const ManageCompanyStorageStockGrid = ({
   companyFireStroreData,
@@ -22,6 +24,8 @@ export const ManageCompanyStorageStockGrid = ({
 
   const [stockFirestoreLoaded, setStockFirestoreLoaded] = useState(false);
   const [stockListFirestore, setStockListFirestore] = useState([]);
+
+  const [i18nFormtext, setI18nFormtext] = useState([]);
 
   const navigate = useNavigate();
 
@@ -50,16 +54,28 @@ export const ManageCompanyStorageStockGrid = ({
     fetchData().catch(console.error);
   }, [companyFireStroreData?.id]);
 
+  useEffect(() => {
+    if (stockFirestoreLoaded) {
+      let savedPortalLanguage = getCurrentUserLanguage();
+
+      if (savedPortalLanguage == "HU") {
+        setI18nFormtext(langugeData["HU"]);
+      } else {
+        setI18nFormtext(langugeData["UK"]);
+      }
+    }
+  }, [portalLanguage, stockFirestoreLoaded]);
+
   const columns = [
     {
       field: "name",
-      headerName: "Storage item name",
+      headerName: i18nFormtext["storageName"],
       width: 200,
       editable: false,
     },
     {
       field: "virtual",
-      headerName: "Is virtual?",
+      headerName: i18nFormtext["virtual"],
       width: 100,
       editable: false,
       renderCell: (params) => {
@@ -76,20 +92,20 @@ export const ManageCompanyStorageStockGrid = ({
     },
     {
       field: "address",
-      headerName: "Address",
+      headerName: i18nFormtext["address"],
       width: 250,
       editable: false,
     },
     {
       field: "description",
-      headerName: "Description",
+      headerName: i18nFormtext["description"],
       width: 300,
       editable: false,
     },
     {
       field: "action",
-      headerName: "Action",
-      width: 250,
+      headerName: i18nFormtext["action"],
+      width: 350,
       sortable: false,
       disableClickEventBubbling: true,
 
@@ -111,7 +127,7 @@ export const ManageCompanyStorageStockGrid = ({
               size="small"
               onClick={onClickShow}
             >
-              Swow storage
+              {i18nFormtext["showStorageAction"]}
             </Button>
             <Button
               variant="outlined"
@@ -119,7 +135,7 @@ export const ManageCompanyStorageStockGrid = ({
               size="small"
               onClick={onClickEdit}
             >
-              Modify
+              {i18nFormtext["modifyAction"]}
             </Button>
           </Stack>
         );

@@ -31,6 +31,7 @@ import { SuccessFulSave } from "../../components/SuccessFulSave";
 import { DefaultSubmitButton } from "../../components/submit/DefaultSubmitButton";
 import { createBaseFirestoreData } from "../../utility/crudUtilityHelper";
 import "../../stylesheets/stockStorage/AddModifyStockStorage.css";
+import langugeData from "../../languages/stockStorage/AddModifyStockStorage.json";
 
 export const AddModifyStockStorage = ({
   companyFireStroreData,
@@ -122,18 +123,6 @@ export const AddModifyStockStorage = ({
               ? "Új raktár adat rögzítése"
               : "Raktár adat módosítása";
           }
-          i18nFormtextLocal.storageItemName = "Raktár neve:";
-          i18nFormtextLocal.storageItemNameText =
-            "Kérjük adja meg a raktár nevét.";
-          i18nFormtextLocal.storageItemVirtual = "Virtuális-e a raktár?:";
-          i18nFormtextLocal.yes = "Igen";
-          i18nFormtextLocal.no = "Nem";
-          i18nFormtextLocal.storageItemAddress = "Raktár címe:";
-          i18nFormtextLocal.storageItemAddressText =
-            "Kérjük adja meg a raktár címét.";
-          i18nFormtextLocal.storageItemDescription = "Leírás a raktrárról:";
-          i18nFormtextLocal.storageItemDescriptionText =
-            "Kérlek adj meg egy leírást a raktrárról.";
           i18nFormtextLocal.storageItemSubmitButtonText = isNewStorageItem
             ? "Új raktár adat mentése"
             : "Raktár adat módosítása";
@@ -145,25 +134,16 @@ export const AddModifyStockStorage = ({
               ? "New storage item"
               : "Modify storage item";
           }
-          i18nFormtextLocal.storageItemName = "Storage item name:";
-          i18nFormtextLocal.storageItemNameText =
-            " Please add the storage item name.";
-          i18nFormtextLocal.userNameLabelText = "User name:";
-          i18nFormtextLocal.storageItemVirtual = "Storage item is virtual?";
-          i18nFormtextLocal.yes = "Yes";
-          i18nFormtextLocal.no = "No";
-          i18nFormtextLocal.storageItemAddress = "Storage item address:";
-          i18nFormtextLocal.storageItemAddressText =
-            " lease add the storage item address.";
-          i18nFormtextLocal.storageItemDescription =
-            "Storage item description:";
-          i18nFormtextLocal.storageItemDescriptionText =
-            "Please write a short description of storage item.";
           i18nFormtextLocal.storageItemSubmitButtonText = isNewStorageItem
             ? "Save the new quantity storage item data"
             : "Modify storage item";
         }
         setI18nFormtext(i18nFormtextLocal);
+        if (currentPortalLanguge == "HU") {
+          setI18nFormtext(...i18nFormtext, langugeData["HU"]);
+        } else {
+          setI18nFormtext(...i18nFormtext, langugeData["UK"]);
+        }
       }
     };
     fetchData().catch(console.error);

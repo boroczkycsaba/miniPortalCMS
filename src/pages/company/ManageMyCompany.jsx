@@ -1,5 +1,6 @@
 import React from "react";
 import "../../stylesheets/company/ManageMyCompany.css";
+import langugeData from "../../languages/company/ManageMyCompany.json";
 import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { getAllCountries } from "../../utility/crudUtilityCountry.js";
@@ -70,39 +71,6 @@ export const ManageMyCompany = ({
       }
 
       const i18nFormtextLocal = [];
-      if (currentPortalLanguge == "HU") {
-        i18nFormtextLocal.companyName = "Cég neve:";
-        i18nFormtextLocal.companyNameText = "Kérem adja meg a cég nevét.";
-        i18nFormtextLocal.companyCountryName = "Cég központ országa:";
-        i18nFormtextLocal.companyTaxNumber = "Cég adószáma:";
-        i18nFormtextLocal.companyTaxNumberText =
-          "Kérem adja meg a cég adószámát.";
-        i18nFormtextLocal.companyPhoneNumber = "Cég központi telefonszám:";
-        i18nFormtextLocal.companyPhoneNumberText =
-          "Kérem adja meg közpotni céges telefonszámot.";
-        i18nFormtextLocal.companyFaxNumber = "Cég központi fax telefonszám:";
-        i18nFormtextLocal.companyFaxNumberText =
-          "Kérem adja meg a cég központi fax telefonszámát.";
-        i18nFormtextLocal.companyDescription = "Cég rövi leírás:";
-        i18nFormtextLocal.companyDescriptionText =
-          "Kérem írjon egy rövid leírás a cégéről.";
-      } else {
-        i18nFormtextLocal.companyName = "Company name:";
-        i18nFormtextLocal.companyNameText = "Please add the company name.";
-        i18nFormtextLocal.companyCountryName = "Company country:";
-        i18nFormtextLocal.companyTaxNumber = "Company tax number:";
-        i18nFormtextLocal.companyTaxNumberText =
-          "Please add the company tax number.";
-        i18nFormtextLocal.companyPhoneNumber = "Company phone number:";
-        i18nFormtextLocal.companyPhoneNumberText =
-          "Please add the company phone number.";
-        i18nFormtextLocal.companyFaxNumber = "Company fax number:";
-        i18nFormtextLocal.companyFaxNumberText =
-          "Please add the company fax number.";
-        i18nFormtextLocal.companyDescription = "Company short description:";
-        i18nFormtextLocal.companyDescriptionText =
-          "Please write a short description of your company.";
-      }
 
       if (isNewCompany) {
         if (currentPortalLanguge == "HU") {
@@ -124,6 +92,11 @@ export const ManageMyCompany = ({
         }
       }
       setI18nFormtext(i18nFormtextLocal);
+      if (currentPortalLanguge == "HU") {
+        setI18nFormtext(...i18nFormtext, langugeData["HU"]);
+      } else {
+        setI18nFormtext(...i18nFormtext, langugeData["UK"]);
+      }
     }
   }, [portalLanguage, companyDataLoaded]);
 
@@ -257,7 +230,7 @@ export const ManageMyCompany = ({
         countryDefaultValue: {
           id: value.id,
           name: value.name,
-        }
+        },
       });
     }
   };

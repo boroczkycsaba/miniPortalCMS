@@ -1,0 +1,28 @@
+{
+    "HU": {
+        "companyName": "Cég neve:",
+        "companyNameText": "Kérem adja meg a cég nevét.",
+        "companyCountryName": "Cég központ országa:",
+        "companyTaxNumber": "Cég adószáma:",
+        "companyTaxNumberText": "Kérem adja meg a cég adószámát.",
+        "companyPhoneNumber": "Cég központi telefonszám:",
+        "companyPhoneNumberText": "Kérem adja meg közpotni céges telefonszámot.",
+        "companyFaxNumber": "Cég központi fax telefonszám:",
+        "companyFaxNumberText": "Kérem adja meg a cég központi fax telefonszámát.",
+        "companyDescription": "Cég rövi leírás:",
+        "companyDescriptionText": "Kérem írjon egy rövid leírás a cégéről."       
+    },
+    "UK": {
+        "companyName": "Company name:",
+        "companyNameText": "Please add the company name.",
+        "companyCountryName": "Company country:",
+        "companyTaxNumber": "Company tax number:",
+        "companyTaxNumberText": "Please add the company tax number.",
+        "companyPhoneNumber": "Company phone number:",
+        "companyPhoneNumberText": "Please add the company phone number.",
+        "companyFaxNumber": "Company fax number:",
+        "companyFaxNumberText" : "Please add the company fax number.",
+        "companyDescription": "Company short description:",
+        "companyDescriptionText": "Please write a short description of your company."
+    }
+}
