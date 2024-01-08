@@ -153,6 +153,7 @@ export const AddModifyStock = ({
           setStockItemFireStroreData(await readStock(param.id));
           if (param?.quantity) {
             setStockItemQuantityModify(true);
+            setStockItemBaseFormDataDisabled(true);
           }
           if (param?.scrapping) {
             setStockItemScrappingModify(true);

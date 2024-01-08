@@ -8,7 +8,6 @@ import {
 import { readDataByCompanyUid } from "./crudUtilityHelper.js";
 
 export const createStockItemModifiedQuantity = async (newStockItemQuantityData) => {
-  console.log(newStockItemQuantityData);
   const collectionRef = collection(db, "stockItemsModified");
   const newItem = {
     ...newStockItemQuantityData,
