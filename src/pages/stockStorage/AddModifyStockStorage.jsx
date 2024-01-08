@@ -113,7 +113,14 @@ export const AddModifyStockStorage = ({
         if (storageItemFireStroreData && storageItemFireStroreData?.id) {
           isNewStorageItem = false;
         }
-        const i18nFormtextLocal = [];
+        let i18nFormtextLocal = [];
+
+        if (currentPortalLanguge == "HU") {
+          i18nFormtextLocal = langugeData["HU"];
+        } else {
+          si18nFormtextLocal = langugeData["UK"];
+        }
+
         if (currentPortalLanguge == "HU") {
           if (storageItemBaseFormDataDisabled) {
             i18nFormtextLocal.storageItemFormHeaderText =
@@ -138,12 +145,7 @@ export const AddModifyStockStorage = ({
             ? "Save the new quantity storage item data"
             : "Modify storage item";
         }
-        setI18nFormtext(i18nFormtextLocal);
-        if (currentPortalLanguge == "HU") {
-          setI18nFormtext(...i18nFormtext, langugeData["HU"]);
-        } else {
-          setI18nFormtext(...i18nFormtext, langugeData["UK"]);
-        }
+        setI18nFormtext(i18nFormtextLocal);      
       }
     };
     fetchData().catch(console.error);
