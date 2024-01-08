@@ -69,8 +69,13 @@ export const ManageMyCompany = ({
       if (!currentPortalLanguge) {
         currentPortalLanguge = portalLanguage;
       }
-
-      const i18nFormtextLocal = [];
+      
+      let i18nFormtextLocal = [];
+      if (currentPortalLanguge == "HU") {
+        i18nFormtextLocal = langugeData["HU"];
+      } else {
+        i18nFormtextLocal = langugeData["UK"];
+      }
 
       if (isNewCompany) {
         if (currentPortalLanguge == "HU") {
@@ -82,7 +87,7 @@ export const ManageMyCompany = ({
             "Save the new company data";
         }
       } else {
-        if (portalLanguage == "HU") {
+        if (currentPortalLanguge == "HU") {
           i18nFormtextLocal.companyFormHeaderText = "Cég adat módosítás";
           i18nFormtextLocal.companySubmitButtonText =
             "Módosított cég adatok mentése";
@@ -91,11 +96,10 @@ export const ManageMyCompany = ({
           i18nFormtextLocal.companySubmitButtonText = "Modify the company data";
         }
       }
-      setI18nFormtext(i18nFormtextLocal);
       if (currentPortalLanguge == "HU") {
-        setI18nFormtext(...i18nFormtext, langugeData["HU"]);
+        setI18nFormtext(i18nFormtextLocal);
       } else {
-        setI18nFormtext(...i18nFormtext, langugeData["UK"]);
+        setI18nFormtext(i18nFormtextLocal);
       }
     }
   }, [portalLanguage, companyDataLoaded]);
