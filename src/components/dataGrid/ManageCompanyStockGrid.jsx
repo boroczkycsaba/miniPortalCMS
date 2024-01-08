@@ -1,4 +1,5 @@
 import React from "react";
+import langugeData from "../../languages/stock/ManageCompanyStock.json";
 import { BaseDataGrid } from "./BaseDataGrid";
 import { readStocks } from "../../utility/crudUtilityStock";
 import { Loader } from "../Loader";
@@ -9,6 +10,7 @@ import { UserContext } from "../../context/UserContext";
 import { useContext } from "react";
 import { readCompany } from "../../utility/crudUtilityCompany";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUserLanguage } from "../../utility/serviceLanguage";
 
 export const ManageCompanyStockGrid = ({
   companyFireStroreData,
@@ -20,6 +22,8 @@ export const ManageCompanyStockGrid = ({
 
   const [stockFirestoreLoaded, setStockFirestoreLoaded] = useState(false);
   const [stockListFirestore, setStockListFirestore] = useState([]);
+
+  const [i18nFormtext, setI18nFormtext] = useState([]);
 
   const navigate = useNavigate();
 
@@ -48,35 +52,47 @@ export const ManageCompanyStockGrid = ({
     fetchData().catch(console.error);
   }, [companyFireStroreData?.id]);
 
+  useEffect(() => {
+    if (stockFirestoreLoaded) {
+      let savedPortalLanguage = getCurrentUserLanguage();
+      
+      if (savedPortalLanguage == "HU") {
+        setI18nFormtext(langugeData["HU"]);
+      } else {
+        setI18nFormtext(langugeData["UK"]);
+      }
+    }
+  }, [portalLanguage, stockFirestoreLoaded]);
+
   const columns = [
     {
       field: "name",
-      headerName: "Stock name",
+      headerName: i18nFormtext["stockName"],
       width: 200,
       editable: false,
     },
     {
       field: "quantity",
-      headerName: "Quantity",
+      headerName: i18nFormtext["currentQuantity"],
       width: 100,
       editable: false,
     },
     {
       field: "aviable",
-      headerName: "Scrapped",
+      headerName: i18nFormtext["scrapped"],
       width: 100,
       editable: false,
     },
     {
       field: "description",
-      headerName: "Description",
+      headerName: i18nFormtext["description"],
       width: 300,
       editable: false,
     },
     {
       field: "action",
-      headerName: "Action",
-      width: 400,
+      headerName: i18nFormtext["action"],
+      width: 500,
       sortable: false,
       disableClickEventBubbling: true,
 
@@ -106,7 +122,7 @@ export const ManageCompanyStockGrid = ({
               size="small"
               onClick={onClickEdit}
             >
-              Modify
+              {i18nFormtext["stockItemModify"]}
             </Button>
             <Button
               variant="outlined"
@@ -114,7 +130,7 @@ export const ManageCompanyStockGrid = ({
               size="small"
               onClick={onClickQuantity}
             >
-              Add quantity
+              {i18nFormtext["stockItemAddQuantity"]}
             </Button>
             <Button
               variant="outlined"
@@ -122,7 +138,7 @@ export const ManageCompanyStockGrid = ({
               size="small"
               onClick={onClickScrapping}
             >
-              Scrapping
+              {i18nFormtext["stockItemScrapping"]}
             </Button>
             <Button
               variant="outlined"
@@ -130,7 +146,7 @@ export const ManageCompanyStockGrid = ({
               size="small"
               onClick={onClickUser}
             >
-              User
+              {i18nFormtext["stockItemUser"]}
             </Button>
           </Stack>
         );

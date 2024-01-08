@@ -1,0 +1,24 @@
+{
+  "HU": {
+    "stockName": "Készlet neve",
+    "currentQuantity": "Jelenlegi mennyiség",
+    "scrapped": "Leselejtezve-e?",
+    "description": "Leírás",
+    "action": "Művelet",
+    "stockItemModify": "Módosítás",
+    "stockItemAddQuantity": "Mennyiség +",
+    "stockItemScrapping": "Leselejtezés",
+    "stockItemUser": "Felhasználó"
+  },
+  "UK": {
+    "stockName": "Stock name",
+    "currentQuantity": "Current quantity",
+    "scrapped": "Scrapped?",
+    "description": "Description",
+    "action": "Action",
+    "stockItemModify": "Modify",
+    "stockItemAddQuantity": "Add quantity",
+    "stockItemScrapping": "Scrapping",
+    "stockItemUser": "User"
+  }
+}

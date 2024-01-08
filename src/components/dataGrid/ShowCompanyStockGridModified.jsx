@@ -1,4 +1,5 @@
 import React from "react";
+import langugeData from "../../languages/stock/ShowCompanyStockModified.json";
 import { BaseDataGrid } from "./BaseDataGrid";
 import { readModifiedStocks } from "../../utility/crudUtilityStockQuantity";
 import { Loader } from "../Loader";
@@ -9,6 +10,7 @@ import { useContext } from "react";
 import { readCompany } from "../../utility/crudUtilityCompany";
 import { useNavigate } from "react-router-dom";
 import { Button, Stack } from "@mui/material";
+import { getCurrentUserLanguage } from "../../utility/serviceLanguage";
 
 export const ShowCompanyStockGridModified = ({
   companyFireStroreData,
@@ -20,6 +22,8 @@ export const ShowCompanyStockGridModified = ({
 
   const [stockFirestoreLoaded, setStockFirestoreLoaded] = useState(false);
   const [stockListFirestore, setStockListFirestore] = useState([]);
+
+  const [i18nFormtext, setI18nFormtext] = useState([]);
 
   const navigate = useNavigate();
 
@@ -48,34 +52,47 @@ export const ShowCompanyStockGridModified = ({
     fetchData().catch(console.error);
   }, [companyFireStroreData?.id]);
 
+  useEffect(() => {
+    if (stockFirestoreLoaded) {
+      let savedPortalLanguage = getCurrentUserLanguage();
+      
+      if (savedPortalLanguage == "HU") {
+        setI18nFormtext(langugeData["HU"]);
+      } else {
+        setI18nFormtext(langugeData["UK"]);
+      }
+    }
+  }, [portalLanguage, stockFirestoreLoaded]);
+
+
   const columns = [
     {
       field: "name",
-      headerName: "Stock name",
+      headerName: i18nFormtext["stockName"],
       width: 200,
       editable: false,
     },
     {
       field: "modifiedQuantity",
-      headerName: "Modified quantity",
+      headerName: i18nFormtext["modifiedQuantity"],
       width: 150,
       editable: false,
     },
     {
       field: "reason",
-      headerName: "Reason",
+      headerName: i18nFormtext["reason"],
       width: 100,
       editable: false,
     },
     {
       field: "description",
-      headerName: "Description",
+      headerName: i18nFormtext["description"],
       width: 300,
       editable: false,
     },
     {
       field: "action",
-      headerName: "Action",
+      headerName: i18nFormtext["action"],
       width: 200,
       sortable: false,
       disableClickEventBubbling: true,
@@ -94,7 +111,7 @@ export const ShowCompanyStockGridModified = ({
               size="small"
               onClick={onClickShow}
             >
-              Swow stock item data
+              {i18nFormtext["swowStockdata"]}
             </Button>
           </Stack>
         );

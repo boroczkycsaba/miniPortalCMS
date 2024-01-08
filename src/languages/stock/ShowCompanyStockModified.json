@@ -1,0 +1,19 @@
+{
+    "HU": {
+      "stockName": "Készlet neve",
+      "modifiedQuantity": "Módosult mennyiség",
+      "reason": "Módosulás oka",
+      "description": "Leírás",
+      "action": "Művelet",
+      "swowStockdata": "Készlet megnyitása"
+    },
+    "UK": {
+      "stockName": "Stock name",
+      "modifiedQuantity": "Modified quantity",
+      "reason": "Reason",
+      "description": "Description",
+      "action": "Action",
+      "swowStockdata": "Swow stock item data"
+    }
+  }
+  
