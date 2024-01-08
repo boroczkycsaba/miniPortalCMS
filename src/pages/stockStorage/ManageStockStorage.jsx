@@ -25,9 +25,9 @@ export const ManageStockStorage = ({
       }
       const i18nFormtextLocal = [];
       if (currentPortalLanguge == "HU") {
-        i18nFormtextLocal.newStockItemButton = "Új készlet adat felvétele";
+        i18nFormtextLocal.newStorageStockItemButton = "Új raktár adat felvétele";
       } else {
-        i18nFormtextLocal.newStockItemButton = "New stock item data";
+        i18nFormtextLocal.newStorageStockItemButton = "New storage  data";
       }
       setI18nFormtext(i18nFormtextLocal);
     };
@@ -50,7 +50,7 @@ export const ManageStockStorage = ({
             spacing={1}
           >
             <Button variant="outlined" onClick={() => handleNewStockClick()}>
-              {i18nFormtext["newStockItemButton"]}
+              {i18nFormtext["newStorageStockItemButton"]}
             </Button>
           </Stack>
         </div>
